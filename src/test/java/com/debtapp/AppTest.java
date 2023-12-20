@@ -8,23 +8,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Unit test for simple App.
  */
 class AppTest {
+
+    public static final int DEBT = 1000;
+    public static final int MONTHS_IN_A_YEAR = 12;
+    public static final double MONTHLY_INTEREST = 10.0;
+    public static final double OVERALL_DEBT = 1120.0;
+
     /**
      * Rigorous Test.
      */
+
     @Test
-    void testApp() {
-        assertEquals(1, 1);
+    public void testcalclateMonthlyInterest() {
+        double monthlyInterest = App.calclateMonthlyInterest(DEBT, MONTHS_IN_A_YEAR);
+        assertEquals(MONTHLY_INTEREST, monthlyInterest);
     }
 
     @Test
-    public void testcalclateMonthlyInterest(){
-        double monthlyInterest = App.calclateMonthlyInterest(1000, 12);
-        assertEquals(10.0, monthlyInterest);
-    }
-
-    @Test
-    public void testcalculateOverallDebt(){
-        double overallDebt = App.calculateOverallDebt(1000, 10.0, 12);
-        assertEquals(1120.0, overallDebt);
+    public void testcalculateOverallDebt() {
+        double overallDebt = App.calculateOverallDebt(DEBT, MONTHLY_INTEREST, MONTHS_IN_A_YEAR);
+        assertEquals(OVERALL_DEBT, overallDebt);
     }
 }
