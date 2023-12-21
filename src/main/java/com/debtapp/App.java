@@ -3,7 +3,7 @@ package com.debtapp;
 import java.util.Scanner;
 
 /**
- * Hello world!
+ * Class App for debt calculation functionality!
  */
 public final class App {
 
