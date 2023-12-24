@@ -16,5 +16,10 @@ pipeline {
                 }
             }
         }
+		stage('MutationTesting') {
+			steps {
+				sh 'mvn pitest:mutationCoverage'
+			}
+		}
     }
 }
