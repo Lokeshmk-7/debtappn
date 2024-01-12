@@ -202,6 +202,8 @@
         <version>4.8.2.0</version>
         <configuration>
           <fork>false</fork>
+          <xmlOutput>true</xmlOutput>
+          <htmlOutput>true</htmlOutput>
         </configuration>
         <dependencies>
           <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->

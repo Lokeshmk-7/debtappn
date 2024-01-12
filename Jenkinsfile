@@ -26,5 +26,9 @@ pipeline {
 				sh 'mvn spotbugs:check'
 			}
 		}
+		stage('Publish Spotbugs') {
+		  def spotbugs = scanForIssues tool: spotBugs(pattern: '**/target/spotbugsXml.xml')
+		  publishIssues issues: [spotbugs]
+		}
     }
 }
