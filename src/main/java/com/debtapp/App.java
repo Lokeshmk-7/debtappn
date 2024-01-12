@@ -34,7 +34,7 @@ public final class App {
      */
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, "UTF-8");
 
         System.out.println("Enter debt value (in Euros): ");
         double debtValue = scanner.nextDouble();

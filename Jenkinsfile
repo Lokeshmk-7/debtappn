@@ -21,5 +21,10 @@ pipeline {
 				sh 'mvn pitest:mutationCoverage'
 			}
 		}
+		stage('SpotbugsCheck') {
+			steps {
+				sh 'mvn spotbugs:check'
+			}
+		}
     }
 }
