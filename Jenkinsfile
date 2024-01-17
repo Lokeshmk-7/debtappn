@@ -20,11 +20,37 @@ pipeline {
 			steps {
 				sh 'mvn pitest:mutationCoverage'
 			}
+            post {
+                always {
+                    publishHTML target: [
+                        reportName: 'Pi-Test Report',
+                        reportDir: 'target/pit-reports',
+                        reportFiles: 'index.html', 
+                        reportTitles: 'Mutation Testing Report', 
+                        keepAll: true,
+                        alwaysLinkToLastBuild: true,
+                        allowMissing: false
+                    ]
+                }
+            }
 		}
 		stage('SpotbugsCheck') {
 			steps {
 				sh 'mvn spotbugs:check'
 			}
+            post {
+                always {
+                    publishHTML target: [
+                        reportName: 'Spotbugs Report',
+                        reportDir: 'target',
+                        reportFiles: 'spotbugs.html', 
+                        reportTitles: 'Bad Smell Identification Report', 
+                        keepAll: true,
+                        alwaysLinkToLastBuild: true,
+                        allowMissing: false
+                    ]
+                }
+            }
 		}
     }
 }
